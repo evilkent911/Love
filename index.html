@@ -50,14 +50,24 @@
                 </div>
                 <canvas id="canvas" width="1100" height="680"></canvas>
             </div>
-            <audio src="./love.mp3" autoplay="autoplay"></audio>
+            <audio visible="false" id="music"><source src="./love.mp3" type="audio/mpeg"></audio>
         </div>
     
     <script>
     </script>
 
     <script>
+	
+	var myMusic= document.getElementById("music");
+	function play() {
+	myMusic.play();
+	}
+	
+	
     (function(){
+	
+	
+	
         var canvas = $('#canvas');
 
         if (!canvas[0].getContext) {
@@ -113,6 +123,7 @@
         var hold = 1;
 
         canvas.click(function(e) {
+		myMusic.play();
             var offset = canvas.offset(), x, y;
             x = e.pageX - offset.left;
             y = e.pageY - offset.top;
